@@ -6,12 +6,12 @@ fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => {
         products = data;
-        displayProducts();
+        displayProducts(products);
     })
     .catch(error => console.error('Error fetching products:', error));
 
 // Function to display products on the page
-function displayProducts() {
+function displayProducts(products) {
     const productList = document.getElementById('product-list');
     productList.innerHTML = ''; // Clear the list first
 
@@ -20,16 +20,27 @@ function displayProducts() {
         productDiv.classList.add('product');
         
         productDiv.innerHTML = `
-            <h3>${product.title}</h3>
-            <img src="${product.image}" alt="${product.title}" style="width:100px;">
-            <p>${product.description.substring(0, 50)}...</p>
-            <p><strong>$${product.price}</strong></p>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
+            <h3 class="product-title">${product.title}</h3>
+            <img src="${product.image}" alt="${product.title}" class="product-image">
+            <p class="product-description">${product.description.substring(0, 50)}...</p>
+            <h6 class="product-price"><strong>$${product.price}</strong></h6>
+            <button onclick="addToCart(${product.id})" class="add-to-cart-btn">Add to Cart</button>
         `;
 
         productList.appendChild(productDiv);
     });
 }
+
+function searchProducts() {
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const filteredProducts = products.filter(product => 
+        product.title.toLowerCase().includes(searchInput)
+    );
+    displayProducts(filteredProducts);
+}
+
+// Initial display of all products
+displayProducts(products);
 
 // Function to add product to cart
 function addToCart(productId) {
@@ -99,12 +110,12 @@ function displayCart() {
 
     cartDiv.innerHTML += `
     <div class="price-details">
-        <h3>Price Details</h3>
-        <p>Total MRP: <span>$${totalMRP.toFixed(2)}</span></p>
-        <p>Coupon Discount: <span>-$${couponDiscount.toFixed(2)}</span></p>
-        <p>Platform Fee: <span>+$${platformFee.toFixed(2)}</span></p>
-        <p>Shipping Charges: <span>+$${shippingCharges.toFixed(2)}</span></p>
-        <p class="total-amount">Total Amount: <span>$${totalAmount.toFixed(2)}</span></p>
+        <h4>Price Details</h4>
+        <h5>Total MRP: <span>$${totalMRP.toFixed(2)}</span></h5>
+        <h5>Coupon Discount: <span>-$${couponDiscount.toFixed(2)}</span></h5>
+        <h5>Platform Fee: <span>+$${platformFee.toFixed(2)}</span></h5>
+        <h5>Shipping Charges: <span>+$${shippingCharges.toFixed(2)}</span></h5>
+        <h5 class="total-amount">Total Amount: <span>$${totalAmount.toFixed(2)}</span></h5>
     </div>
     <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
 `;
