@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+#product-list, #cart {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product, .cart-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: calc(33.333% - 20px);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+.cart-item p {
+    margin: 5px 0;
+}
+
+/* Price details section styling */
+.price-details {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 2px solid #ccc;
+}
+
+.price-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.price-details p span {
+    font-weight: bold;
+}
+
+/* Styling for total amount */
+.total-amount {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #d9534f; /* Red color for emphasis */
+}
+
+.place-order-btn {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.place-order-btn:hover {
+    background-color: #0056b3;
+}
