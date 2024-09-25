@@ -1,11 +1,60 @@
+/* Style for the search box */
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styling */
+#header {
+    margin-right: 100px;
+    margin-bottom: 100px;
+    background-color: #007bff; /* Blue background */
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    position: fixed; /* Keep the header fixed on top */
+    width: 88%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow under the header */
+}
+#search-input {
+    margin-top: 100px;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Change border color on focus */
+#search-input:focus {
+    border-color: #007bff;
+}
+
+/* Add some margin to the top of the search box */
+body > div:first-child {
+    margin-bottom: 20px;
+    text-align: center; /* Center align the search box */
+}
+
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 90%;
     margin: auto;
+    margin-right: 100px;
+
 }
 
  #cart {
@@ -27,7 +76,8 @@ body {
 }
 
 .product {
-    width: 30%;         /* Width for 3 items per row */
+    width: 30%;   
+    margin-top: 50px      /* Width for 3 items per row */
     margin-bottom: 20px; /* Space at the bottom */
     border: 1px solid #ccc;
     padding: 20px;
@@ -41,18 +91,18 @@ body {
 }
 
 .product-title {
-    margin: 0 0 10px 0;
-    height:150px; /* Margin to separate title from the image */
+    margin: 0 0 50px 0;
+    height:100px; /* Margin to separate title from the image */
 }
 
 img {
     width: 100px; /* Fixed width for images */
-    height: 150px; /* Maintain aspect ratio */
+    height: 120px; /* Maintain aspect ratio */
 }
 
 p {
     margin: 0 0 10px 0; 
-    height:100px/* Margin to separate description from the price */
+    height:50px/* Margin to separate description from the price */
 }
 
 .product-price {
@@ -76,7 +126,7 @@ button:disabled {
 }
 
 h3 {
-    margin-top: 20px;
+    margin-bottom: 50px;
     height: 100px;
 }
 
